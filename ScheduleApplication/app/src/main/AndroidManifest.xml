@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="room106.app.scheduleapplication">
+    package="room106.app.schedule">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ScheduleApplication">
         <activity
-            android:name=".MainActivity"
+            android:name="room106.app.schedule.ui.taskslist.TasksActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

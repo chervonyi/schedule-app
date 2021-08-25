@@ -1,4 +1,4 @@
-package room106.app.scheduleapplication
+package room106.app.schedule
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

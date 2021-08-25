@@ -1,4 +1,4 @@
-package room106.app.scheduleapplication
+package room106.app.schedule
 
 import org.junit.Test
 
