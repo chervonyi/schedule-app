@@ -1,4 +1,4 @@
-package room106.app.schedule.ui.taskslist
+package room106.app.schedule.ui.taskslist.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

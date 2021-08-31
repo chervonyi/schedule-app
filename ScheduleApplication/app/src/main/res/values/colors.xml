@@ -10,8 +10,11 @@
     
 
     <!--    #1    -->
-    <color name="background">#222433</color>
-    <color name="block">#2B2C40</color>
+    <color name="background">#F9F9FC</color>
+    <color name="block">#FFF</color>
     <color name="accent">#0077F8</color>
-    <color name="font">#FFF</color>
+    <color name="accent_dark">#0061CA</color>
+    <color name="accent_font">#FFF</color>
+    <color name="font">#252527</color>
+    <color name="checkbox_normal">#1A000000</color>
 </resources>

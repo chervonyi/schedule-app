@@ -10,5 +10,7 @@ class TasksRepository(
 
     suspend fun delete(task: Task) = db.getTasksDao().delete(task)
 
-    fun getTasksByDay(day: String) = db.getTasksDao().getTasksByDay(day)
+    fun getTasksByDay() = db.getTasksDao().getTasksByDay()
+
+    fun getTask(id: Int) = db.getTasksDao().getTask(id)
 }

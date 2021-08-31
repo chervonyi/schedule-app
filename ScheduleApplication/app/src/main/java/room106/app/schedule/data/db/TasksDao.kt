@@ -13,6 +13,9 @@ interface TasksDao {
     @Delete
     suspend fun delete(task: Task)
 
-    @Query("SELECT * FROM tasks WHERE day = :day")
-    fun getTasksByDay(day: String): LiveData<List<Task>>
+    @Query("SELECT * FROM tasks")
+    fun getTasksByDay(): LiveData<List<Task>>
+
+    @Query("SELECT * FROM tasks WHERE id=:id")
+    fun getTask(id: Int): LiveData<Task>
 }

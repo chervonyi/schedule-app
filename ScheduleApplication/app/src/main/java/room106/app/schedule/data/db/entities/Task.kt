@@ -6,10 +6,9 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "tasks")
 data class Task(
     var title: String,
-    var status: Boolean,
+    var status: Boolean = false,
     var day: String
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null
-
 }
