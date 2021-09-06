@@ -48,24 +48,24 @@ class CreateTaskFragment : Fragment(R.layout.fragment_create_task), KodeinAware 
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity(), factory).get(TasksViewModel::class.java)
 
-        binding.bSave.setOnClickListener {
-
-            val title = binding.etTitle.text.toString()
-            if (TaskValidation.validateTaskTitle(title)) {
-                val task = Task(title, false, "10/10/1997")
-                binding.etTitle.text?.clear()
-                viewModel.insert(task)
-                activity?.onBackPressed()
-            } else {
-                Toast.makeText(requireContext(), "Not valid title", Toast.LENGTH_LONG).show()
-            }
-        }
-
+        binding.etTitle.text?.clear()
+        binding.bSave.setOnClickListener(onSaveButtonClick)
         binding.etTitle.setMultiLineCapSentencesAndDoneAction()
     }
 
-    private fun EditText.setMultiLineCapSentencesAndDoneAction() {
-        imeOptions = EditorInfo.IME_ACTION_DONE
-        setRawInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES or InputType.TYPE_TEXT_FLAG_MULTI_LINE)
+    private val onSaveButtonClick = View.OnClickListener {
+        val title = binding.etTitle.text.toString()
+        if (TaskValidation.validateTaskTitle(title)) {
+            val task = Task(title, false, "10/10/1997")
+            viewModel.insert(task)
+            activity?.onBackPressed()
+        } else {
+            Toast.makeText(requireContext(), "Not valid title", Toast.LENGTH_LONG).show()
+        }
     }
+}
+
+fun EditText.setMultiLineCapSentencesAndDoneAction() {
+    imeOptions = EditorInfo.IME_ACTION_DONE
+    setRawInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES or InputType.TYPE_TEXT_FLAG_MULTI_LINE)
 }

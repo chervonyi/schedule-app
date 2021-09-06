@@ -1,11 +1,8 @@
 package room106.app.schedule.other
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import room106.app.schedule.R
 import room106.app.schedule.data.db.entities.Task
@@ -23,7 +20,6 @@ class TasksListAdapter(
 
         fun addOnItemClickListener(clickListener: OnItemClickListener, id: Int) {
             itemView.setOnClickListener {
-                Log.d("Test", "clickListener.onTaskClickListener($id)")
                 clickListener.onTaskClickListener(id)
             }
         }
@@ -51,5 +47,5 @@ class TasksListAdapter(
         }
     }
 
-    override fun getItemCount(): Int = tasks.size
+    override fun getItemCount() = tasks.size
 }

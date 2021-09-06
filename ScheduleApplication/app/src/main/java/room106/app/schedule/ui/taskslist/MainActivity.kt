@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
     override fun onBackPressed() {
         super.onBackPressed()
         binding.fab.show()
+        currentFragmentId = 0
     }
 
     private fun setFragment(fragment: Fragment, stack: Boolean, fragmentCode: Int) {
@@ -53,12 +54,11 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
     }
 
     override fun onTaskClickListener(id: Int) {
-        if (currentFragmentId == FragmentTypes.TasksFragment) {
-            val args = Bundle().also {
-                it.putInt("id", id)
-            }
-            editTaskFragment.arguments = args
-            setFragment(editTaskFragment, true, FragmentTypes.EditTaskFragment)
-        }
+        editTaskFragment.arguments = prepareArguments(id)
+        setFragment(editTaskFragment, true, FragmentTypes.EditTaskFragment)
+    }
+
+    private fun prepareArguments(id: Int) = Bundle().apply {
+        putInt("id", id)
     }
 }

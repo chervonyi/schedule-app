@@ -69,9 +69,11 @@ dependencies {
     // New Material Design
     implementation "com.google.android.material:material:1.4.0"
 
+
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    //noinspection LifecycleAnnotationProcessorWithJava8
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
     // Kodein
