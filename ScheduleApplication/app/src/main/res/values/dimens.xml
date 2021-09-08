@@ -2,7 +2,10 @@
 <resources>
     <dimen name="checkbox_size">30dp</dimen>
     <dimen name="corners">10dp</dimen>
+    <dimen name="day_size">50dp</dimen>
 
     <!--    Fonts    -->
     <dimen name="font_block">18sp</dimen>
+    <dimen name="font_day">20sp</dimen>
+    <dimen name="font_week">17sp</dimen>
 </resources>

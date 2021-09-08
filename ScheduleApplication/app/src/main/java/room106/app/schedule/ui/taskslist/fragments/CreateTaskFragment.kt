@@ -21,7 +21,7 @@ import room106.app.schedule.databinding.FragmentEditTaskBinding
 import room106.app.schedule.other.TaskValidation
 import room106.app.schedule.ui.taskslist.viewmodel.TasksViewModelFactory
 
-class CreateTaskFragment : Fragment(R.layout.fragment_create_task), KodeinAware {
+class CreateTaskFragment(var day: String) : Fragment(R.layout.fragment_create_task), KodeinAware {
 
     override val kodein by closestKodein()
     private val factory: TasksViewModelFactory by instance()
@@ -56,7 +56,7 @@ class CreateTaskFragment : Fragment(R.layout.fragment_create_task), KodeinAware 
     private val onSaveButtonClick = View.OnClickListener {
         val title = binding.etTitle.text.toString()
         if (TaskValidation.validateTaskTitle(title)) {
-            val task = Task(title, false, "10/10/1997")
+            val task = Task(title, false, day)
             viewModel.insert(task)
             activity?.onBackPressed()
         } else {

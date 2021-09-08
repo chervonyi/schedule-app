@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Tue"
+        android:textColor="@color/font_50"
+        android:textSize="@dimen/font_week"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bDay"
+        android:layout_width="@dimen/day_size"
+        android:layout_height="@dimen/day_size"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/day"
+        android:text="17"
+        android:clickable="false"
+        android:textSize="@dimen/font_day"
+        android:textColor="@color/accent_font"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tvWeek"
+        style="?android:attr/borderlessButtonStyle"/>
+
+</RelativeLayout>

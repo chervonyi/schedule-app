@@ -1,5 +1,7 @@
 package room106.app.schedule.ui.taskslist.viewmodel
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,7 +21,9 @@ class TasksViewModel(
         repository.delete(task)
     }
 
-    fun getTasksByDay() = repository.getTasksByDay()
+    fun getTasksByDay(date: String) = repository.getTasksByDay(date)
+
+    fun getAllTasks() = repository.getAllTasks()
 
     fun getTask(id: Int) = repository.getTask(id)
 }

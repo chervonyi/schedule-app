@@ -3,17 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/day.xml" value="0.18611111111111112" />
+        <entry key="app/src/main/res/drawable/days_divider.xml" value="0.18611111111111112" />
         <entry key="app/src/main/res/drawable/ic_check.xml" value="0.25462962962962965" />
         <entry key="app/src/main/res/drawable/ic_checkmark.xml" value="0.25462962962962965" />
         <entry key="app/src/main/res/drawable/list_divider.xml" value="0.25462962962962965" />
+        <entry key="app/src/main/res/drawable/selected_day.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/drawable/task_block.xml" value="0.25462962962962965" />
         <entry key="app/src/main/res/drawable/task_checkbox.xml" value="0.25462962962962965" />
         <entry key="app/src/main/res/drawable/task_checkbox_checked.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/task_checkbox_unchecked.xml" value="0.25462962962962965" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_tasks.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_tasks2.xml" value="0.30153846153846153" />
+        <entry key="app/src/main/res/layout/day.xml" value="0.21219090048514103" />
         <entry key="app/src/main/res/layout/fragment_create_task.xml" value="0.2759259259259259" />
+        <entry key="app/src/main/res/layout/fragment_days.xml" value="0.19305555555555556" />
         <entry key="app/src/main/res/layout/fragment_edit_task.xml" value="0.2876923076923077" />
         <entry key="app/src/main/res/layout/fragment_tasks.xml" value="0.30153846153846153" />
         <entry key="app/src/main/res/layout/task.xml" value="0.19170124481327802" />
