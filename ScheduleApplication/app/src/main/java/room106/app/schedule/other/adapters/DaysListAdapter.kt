@@ -1,4 +1,4 @@
-package room106.app.schedule.other
+package room106.app.schedule.other.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import room106.app.schedule.R
 import room106.app.schedule.databinding.DayBinding
+import room106.app.schedule.other.listeners.OnDayClickListener
 import java.text.SimpleDateFormat
 import java.util.*
 

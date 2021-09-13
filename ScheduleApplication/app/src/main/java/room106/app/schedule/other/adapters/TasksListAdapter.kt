@@ -1,4 +1,4 @@
-package room106.app.schedule.other
+package room106.app.schedule.other.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import room106.app.schedule.R
 import room106.app.schedule.data.db.entities.Task
 import room106.app.schedule.databinding.TaskBinding
+import room106.app.schedule.other.listeners.OnItemClickListener
 import room106.app.schedule.ui.taskslist.viewmodel.TasksViewModel
 
 class TasksListAdapter(
@@ -18,9 +19,9 @@ class TasksListAdapter(
     inner class TaskViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val binding = TaskBinding.bind(itemView)
 
-        fun addOnItemClickListener(clickListener: OnItemClickListener, id: Int) {
+        fun addOnItemClickListener(clickListener: OnItemClickListener, task: Task) {
             itemView.setOnClickListener {
-                clickListener.onTaskClickListener(id)
+                clickListener.onTaskClickListener(task)
             }
         }
     }
@@ -42,9 +43,7 @@ class TasksListAdapter(
                 viewModel.insert(task)
             }
         }
-        task.id?.let {
-            holder.addOnItemClickListener(itemClickListener, it)
-        }
+        holder.addOnItemClickListener(itemClickListener, task)
     }
 
     override fun getItemCount() = tasks.size

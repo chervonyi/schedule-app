@@ -1,4 +1,4 @@
-package room106.app.schedule.other
+package room106.app.schedule.other.operators
 
 object FragmentTypes {
     const val TasksFragment = 100

@@ -5,7 +5,7 @@
     <dimen name="day_size">50dp</dimen>
 
     <!--    Fonts    -->
-    <dimen name="font_block">18sp</dimen>
+    <dimen name="font_block">16sp</dimen>
     <dimen name="font_day">20sp</dimen>
     <dimen name="font_week">17sp</dimen>
 </resources>

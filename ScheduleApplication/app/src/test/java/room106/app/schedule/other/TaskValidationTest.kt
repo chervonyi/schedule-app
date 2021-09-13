@@ -2,6 +2,7 @@ package room106.app.schedule.other
 
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
+import room106.app.schedule.other.operators.TaskValidation
 
 class TaskValidationTest {
 
