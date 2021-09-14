@@ -1,18 +1,23 @@
 package room106.app.schedule.other.adapters
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import room106.app.schedule.R
+import room106.app.schedule.data.db.entities.Task
 import room106.app.schedule.databinding.DayBinding
 import room106.app.schedule.other.listeners.OnDayClickListener
+import room106.app.schedule.other.operators.DateConversion
+import room106.app.schedule.other.views.DayHintPoint
 import java.text.SimpleDateFormat
 import java.util.*
 
 class DaysListAdapter(
+    var tasks: List<Task>,
     private val days: List<Date>,
     private val onDayClickListener: OnDayClickListener
 ): RecyclerView.Adapter<DaysListAdapter.DayViewHolder>() {
@@ -26,6 +31,14 @@ class DaysListAdapter(
                 notifyItemChanged(id)
                 selectedId = id
                 listener.onSelectDayListener(days[id])
+            }
+        }
+
+        fun setBottomHint(num: Int) {
+            binding.llHint.removeAllViews()
+            for (i in 0 until num) {
+                if (i > 2) return
+                binding.llHint.addView(DayHintPoint(itemView.context))
             }
         }
 
@@ -54,8 +67,18 @@ class DaysListAdapter(
         holder.binding.bDay.text = SimpleDateFormat("d").format(date)
         holder.binding.tvWeek.text = SimpleDateFormat("EEE").format(date)
 
+        holder.setIsRecyclable(false)
         holder.addOnDayClickListener(onDayClickListener, position)
         holder.setHighlight(position == selectedId)
+        holder.setBottomHint(getTasksCount(date, tasks))
+    }
+
+    private fun getTasksCount(date: Date, tasks: List<Task>): Int {
+        val day = DateConversion.toString(date)
+        val count = tasks.count {
+            it.day == day
+        }
+        return count
     }
 
     override fun getItemCount() = days.size

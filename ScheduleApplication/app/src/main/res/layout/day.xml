@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:id="@+id/tvWeek"
@@ -27,5 +28,17 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/tvWeek"
         style="?android:attr/borderlessButtonStyle"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/llHint"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/day_bottom_hint_size"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:divider="@drawable/days_hint_divider"
+        app:showDividers="middle"
+        android:layout_below="@id/bDay"/>
 
 </RelativeLayout>

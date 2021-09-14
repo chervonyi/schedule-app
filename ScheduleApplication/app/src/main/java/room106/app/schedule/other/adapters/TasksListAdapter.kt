@@ -1,5 +1,6 @@
 package room106.app.schedule.other.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +27,7 @@ class TasksListAdapter(
 
         fun addOnCheckedChangeListener(task: Task) {
             binding.checkbox.setOnCheckedChangeListener { _, _ ->
+                Log.d("Test", "Check changed for: ${task.title}")
                 task.status = !task.status
                 viewModel.insert(task)
             }
@@ -45,6 +47,7 @@ class TasksListAdapter(
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val task = tasks[position]
+        holder.setIsRecyclable(false)
         holder.updateView(task)
         holder.addOnCheckedChangeListener(task)
         holder.addOnItemClickListener(itemClickListener, task)

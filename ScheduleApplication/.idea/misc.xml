@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/day.xml" value="0.18611111111111112" />
+        <entry key="app/src/main/res/drawable/day_bottom_hint.xml" value="0.1951388888888889" />
         <entry key="app/src/main/res/drawable/days_divider.xml" value="0.18611111111111112" />
+        <entry key="app/src/main/res/drawable/days_hint_divider.xml" value="0.1951388888888889" />
         <entry key="app/src/main/res/drawable/ic_check.xml" value="0.25462962962962965" />
         <entry key="app/src/main/res/drawable/ic_checkmark.xml" value="0.25462962962962965" />
         <entry key="app/src/main/res/drawable/list_divider.xml" value="0.25462962962962965" />

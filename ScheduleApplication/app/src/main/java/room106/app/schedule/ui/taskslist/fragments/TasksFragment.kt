@@ -34,7 +34,9 @@ class TasksFragment : Fragment(R.layout.fragment_tasks), KodeinAware, OnItemClic
     private val factory: TasksViewModelFactory by instance()
     private lateinit var viewModel: TasksViewModel
     private lateinit var tasksAdapter: TasksListAdapter
+    private lateinit var daysAdapter: DaysListAdapter
     private var day = DateConversion.today()
+    private var days: List<String>? = null
     private var lastUpdatedList: List<Task> = listOf()
 
     //region Binding
@@ -56,6 +58,7 @@ class TasksFragment : Fragment(R.layout.fragment_tasks), KodeinAware, OnItemClic
     }
     //endregion
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity(), factory).get(TasksViewModel::class.java)
@@ -68,12 +71,16 @@ class TasksFragment : Fragment(R.layout.fragment_tasks), KodeinAware, OnItemClic
         viewModel.getAllTasks().observe(viewLifecycleOwner, {
             lastUpdatedList = it
             updateTasksList(day)
+
+            daysAdapter.tasks = it
+            daysAdapter.notifyDataSetChanged()
         })
     }
 
     @SuppressLint("NotifyDataSetChanged")
     private fun updateTasksList(day: String) {
-        tasksAdapter.tasks = lastUpdatedList.filter { task -> task.day == day }
+        val tasks = lastUpdatedList.filter { task -> task.day == day }
+        tasksAdapter.tasks = tasks
         tasksAdapter.notifyDataSetChanged()
     }
 
@@ -99,7 +106,7 @@ class TasksFragment : Fragment(R.layout.fragment_tasks), KodeinAware, OnItemClic
     //region RecyclerView
     private fun setUpDaysRecyclerView() {
         val dates = DateConversion.createListDate(0, 9)
-        val daysAdapter = DaysListAdapter(dates, this)
+        daysAdapter = DaysListAdapter(listOf(), dates, this)
         binding.rvDays.layoutManager = LinearLayoutManager(
             requireContext(),
             LinearLayoutManager.HORIZONTAL,
@@ -109,7 +116,9 @@ class TasksFragment : Fragment(R.layout.fragment_tasks), KodeinAware, OnItemClic
         binding.rvDays.setDivider(requireContext(), R.drawable.days_divider, DividerItemDecoration.HORIZONTAL)
 
         // Delete old tasks
-        viewModel.deleteAllExcept(DateConversion.toString(dates))
+        days = DateConversion.toString(dates).also {
+            viewModel.deleteAllExcept(it)
+        }
     }
 
     private fun setUpTasksRecyclerView() {
