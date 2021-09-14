@@ -8,7 +8,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import room106.app.schedule.R
 import room106.app.schedule.data.db.entities.Task
 import room106.app.schedule.other.operators.TaskValidation
-import room106.app.schedule.ui.taskslist.fragments.setMultiLineCapSentencesAndDoneAction
+import room106.app.schedule.other.setMultiLineCapSentencesAndDoneAction
 import room106.app.schedule.ui.taskslist.viewmodel.TasksViewModel
 
 class EditTaskAlertDialogBuilder(

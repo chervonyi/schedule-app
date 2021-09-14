@@ -14,12 +14,12 @@ interface TasksDao {
     @Delete
     suspend fun delete(task: Task)
 
+    @Query("DELETE FROM tasks WHERE day NOT IN (:dates)")
+    suspend fun deleteAllExcept(dates: List<String>)
+
     @Query("SELECT * FROM tasks WHERE day = :date")
     fun getTasksByDay(date: String): LiveData<List<Task>>
 
     @Query("SELECT * FROM tasks")
     fun getAllTasks(): LiveData<List<Task>>
-
-    @Query("SELECT * FROM tasks WHERE id = :id")
-    fun getTask(id: Int): LiveData<Task>
 }

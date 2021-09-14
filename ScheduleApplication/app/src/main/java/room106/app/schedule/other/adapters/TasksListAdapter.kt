@@ -17,7 +17,19 @@ class TasksListAdapter(
 ): RecyclerView.Adapter<TasksListAdapter.TaskViewHolder>() {
 
     inner class TaskViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val binding = TaskBinding.bind(itemView)
+        private val binding = TaskBinding.bind(itemView)
+
+        fun updateView(task: Task) {
+            binding.tvTitle.text = task.title
+            binding.checkbox.isChecked = task.status
+        }
+
+        fun addOnCheckedChangeListener(task: Task) {
+            binding.checkbox.setOnCheckedChangeListener { _, _ ->
+                task.status = !task.status
+                viewModel.insert(task)
+            }
+        }
 
         fun addOnItemClickListener(clickListener: OnItemClickListener, task: Task) {
             itemView.setOnClickListener {
@@ -33,16 +45,8 @@ class TasksListAdapter(
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val task = tasks[position]
-
-        with(holder.binding) {
-            tvTitle.text = task.title
-            checkbox.isChecked = task.status
-
-            checkbox.setOnCheckedChangeListener { _, b ->
-                task.status = b
-                viewModel.insert(task)
-            }
-        }
+        holder.updateView(task)
+        holder.addOnCheckedChangeListener(task)
         holder.addOnItemClickListener(itemClickListener, task)
     }
 

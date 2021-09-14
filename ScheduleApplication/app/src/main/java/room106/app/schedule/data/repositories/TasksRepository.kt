@@ -10,9 +10,9 @@ class TasksRepository(
 
     suspend fun delete(task: Task) = db.getTasksDao().delete(task)
 
+    suspend fun deleteAllExcept(dates: List<String>) = db.getTasksDao().deleteAllExcept(dates)
+
     fun getTasksByDay(date: String) = db.getTasksDao().getTasksByDay(date)
 
     fun getAllTasks() = db.getTasksDao().getAllTasks()
-
-    fun getTask(id: Int) = db.getTasksDao().getTask(id)
 }

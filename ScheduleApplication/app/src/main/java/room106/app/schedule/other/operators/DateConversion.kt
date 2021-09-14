@@ -14,6 +14,14 @@ object DateConversion {
         return pattern.format(date)
     }
 
+    fun toString(dates: List<Date>): List<String> {
+        return ArrayList<String>().also { days ->
+            dates.forEach {
+                days.add(toString(it))
+            }
+        }
+    }
+
     fun today() = toString(Calendar.getInstance().time)
 
     fun createListDate(start: Int, end: Int): List<Date> {
