@@ -9,4 +9,6 @@
     <dimen name="font_block">16sp</dimen>
     <dimen name="font_day">20sp</dimen>
     <dimen name="font_week">17sp</dimen>
+
+    <integer name="max_input_characters">300</integer>
 </resources>

@@ -16,6 +16,7 @@
         android:hint="@string/task_title_hint"
         android:textColor="@color/font"
         android:textSize="@dimen/font_block"
+        android:maxLength="@integer/max_input_characters"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

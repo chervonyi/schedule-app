@@ -8,7 +8,6 @@
         android:id="@+id/tvWeek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="Tue"
         android:textColor="@color/font_50"
         android:textSize="@dimen/font_week"

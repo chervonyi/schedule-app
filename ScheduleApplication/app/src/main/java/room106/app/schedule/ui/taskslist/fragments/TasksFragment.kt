@@ -82,6 +82,16 @@ class TasksFragment : Fragment(R.layout.fragment_tasks), KodeinAware, OnItemClic
         val tasks = lastUpdatedList.filter { task -> task.day == day }
         tasksAdapter.tasks = tasks
         tasksAdapter.notifyDataSetChanged()
+
+        setEmptyListLabel(tasks.isEmpty())
+    }
+
+    private fun setEmptyListLabel(isEmpty: Boolean) {
+        binding.tvEmptyList.visibility = if (isEmpty) {
+            View.VISIBLE
+        } else {
+            View.GONE
+        }
     }
 
     //region Listeners

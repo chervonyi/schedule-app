@@ -1,7 +1,6 @@
 package room106.app.schedule.other.adapters
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -67,7 +66,7 @@ class DaysListAdapter(
         holder.binding.bDay.text = SimpleDateFormat("d").format(date)
         holder.binding.tvWeek.text = SimpleDateFormat("EEE").format(date)
 
-        holder.setIsRecyclable(false)
+//        holder.setIsRecyclable(false)
         holder.addOnDayClickListener(onDayClickListener, position)
         holder.setHighlight(position == selectedId)
         holder.setBottomHint(getTasksCount(date, tasks))
