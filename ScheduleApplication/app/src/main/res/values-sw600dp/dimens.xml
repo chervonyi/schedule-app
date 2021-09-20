@@ -12,5 +12,5 @@
 
     <integer name="max_input_characters">300</integer>
 
-    <bool name="portrait_only">true</bool>
+    <bool name="portrait_only">false</bool>
 </resources>

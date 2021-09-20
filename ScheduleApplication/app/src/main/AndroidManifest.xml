@@ -13,9 +13,7 @@
         android:theme="@style/Theme.ScheduleApplication">
         <activity
             android:name="room106.app.schedule.ui.taskslist.MainActivity"
-            android:exported="true"
-            android:screenOrientation="sensorPortrait"
-            tools:ignore="LockedOrientationActivity">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
